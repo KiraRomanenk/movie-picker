@@ -1,0 +1,248 @@
+:root {
+  --bg: #fbf6ec;
+  --card: #ffffff;
+  --text: #2b1d20;
+  --muted: #7a6a63;
+  --accent: #a3173f;
+  --accent-dark: #7d1030;
+  --border: #e3d7c6;
+}
+
+.icon { flex-shrink: 0; }
+a { color: var(--accent); }
+
+/* ===== Кнопки ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; border: none; border-radius: 8px;
+  background: var(--accent); color: #fff;
+  font-size: 16px; cursor: pointer; text-decoration: none;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn:disabled { opacity: 0.6; cursor: default; }
+.btn-small { padding: 8px 16px; font-size: 15px; }
+.btn-ghost { background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.7); }
+.btn-ghost:hover { background: rgba(0, 0, 0, 0.55); }
+.btn.on { background: var(--accent); border-color: #fff; }
+
+/* ===== Верхнє меню ===== */
+.navbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px 40px; background: var(--accent);
+}
+.logo { font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; text-decoration: none; }
+.logo span { color: #f6d6dd; }
+.nav-links { display: flex; gap: 6px; }
+.nav-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 6px; color: #fff;
+  text-decoration: none; font-size: 15px;
+}
+.nav-link:hover { background: rgba(255, 255, 255, 0.18); }
+.nav-link.active { background: #fff; color: var(--accent); }
+.nav-auth { display: flex; align-items: center; gap: 12px; }
+.nav-user { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: #fff; }
+.navbar .btn { background: #fff; color: var(--accent); }
+.navbar .btn:hover { background: #f6e6ea; }
+.navbar .btn-ghost { background: transparent; color: #fff; border: 1px solid #fff; }
+.navbar .btn-ghost:hover { background: rgba(255, 255, 255, 0.18); }
+
+/* ===== Банер на головній ===== */
+.hero {
+  position: relative; height: min(75vh, 560px);
+  background-size: cover; background-position: center top;
+  display: flex; align-items: flex-end;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(35, 8, 16, 0.85) 0%, rgba(35, 8, 16, 0.45) 50%, rgba(35, 8, 16, 0.1) 100%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 560px; padding: 0 40px 70px; color: #fff; }
+.hero-label {
+  display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 14px;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 1px; background: var(--accent);
+}
+.hero h1 { font-family: Georgia, serif; margin: 0 0 10px; font-size: 42px; line-height: 1.1; }
+.hero-meta { display: flex; align-items: center; gap: 6px; color: #ffd166; font-weight: 600; margin-bottom: 12px; }
+.hero p {
+  color: #f1e6e6; line-height: 1.5; margin: 0 0 22px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.dots { position: absolute; z-index: 2; bottom: 28px; left: 40px; display: flex; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; background: rgba(255, 255, 255, 0.5); cursor: pointer; }
+.dot.active { background: #fff; }
+
+/* ===== Секції ===== */
+.section { padding: 0 40px; margin-top: 36px; }
+.section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: Georgia, serif; font-size: 26px; color: var(--accent-dark); margin: 0 0 16px;
+}
+.message { text-align: center; font-size: 18px; margin: 40px 0; color: var(--muted); }
+.error { color: #b00020; }
+.placeholder { text-align: center; padding-top: 80px; }
+
+/* ===== Панель підбору ===== */
+.filters {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px;
+}
+.filters h3 { margin: 18px 0 10px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.filters h3:first-child { margin-top: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 20px; cursor: pointer;
+  border: 1px solid var(--border); background: #fff; color: var(--text); font-size: 15px;
+}
+.chip:hover { border-color: var(--accent); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.mood-chip { font-size: 16px; padding: 10px 18px; }
+.fields { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; margin-top: 22px; }
+.fields label { display: flex; flex-direction: column; font-size: 13px; gap: 6px; color: var(--muted); }
+.fields input {
+  padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border);
+  background: #fff; color: var(--text); width: 130px; font-size: 15px;
+}
+.fields input:focus { outline: 2px solid var(--accent); }
+
+/* ===== Картки фільмів ===== */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 20px; }
+.row { display: flex; gap: 18px; overflow-x: auto; padding: 8px 4px 18px; }
+.row .card { flex: 0 0 170px; }
+.card {
+  position: relative; display: block; background: var(--card);
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+  color: var(--text); text-decoration: none;
+}
+.card:hover { border-color: var(--accent); }
+.card img, .no-poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.no-poster { display: flex; align-items: center; justify-content: center; background: #eadfcf; color: var(--muted); }
+.rating {
+  position: absolute; top: 8px; right: 8px; display: flex; align-items: center; gap: 4px;
+  background: rgba(0, 0, 0, 0.7); color: #ffd166;
+  padding: 3px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;
+}
+.overlay { display: none; }
+.card-info { padding: 10px 12px 12px; }
+.card-info h3 { margin: 0 0 4px; font-size: 15px; }
+.card-info .year { font-size: 13px; color: var(--muted); }
+
+/* ===== Сторінка фільму ===== */
+.details-hero {
+  position: relative; min-height: calc(100vh - 60px);
+  background-size: cover; background-position: center;
+  display: flex; align-items: center;
+}
+.details-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(35, 8, 16, 0.85) 0%, rgba(35, 8, 16, 0.5) 40%, rgba(35, 8, 16, 0) 75%);
+}
+.details-inner {
+  position: relative; z-index: 1; width: 100%;
+  display: flex; gap: 40px; justify-content: space-between; align-items: center;
+  padding: 50px 40px;
+}
+.details-main { max-width: 620px; color: #fff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); }
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: #f1e6e6; text-decoration: none; margin-bottom: 24px; }
+.back-link:hover { color: #fff; }
+.details-title { font-family: Georgia, serif; font-size: clamp(34px, 6vw, 64px); line-height: 1.05; margin: 0 0 10px; }
+.tagline { color: #ffd1da; font-style: italic; margin: 0 0 16px; font-size: 18px; }
+.genre-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.genre-tags span { padding: 4px 12px; border-radius: 4px; font-size: 13px; background: rgba(255, 255, 255, 0.2); }
+.details-score { display: flex; align-items: center; gap: 6px; color: #ffd166; font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+.details-score span { color: #e8dede; font-size: 14px; font-weight: 400; }
+.details-overview { color: #fff; line-height: 1.65; font-size: 16px; margin: 0 0 26px; }
+.details-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.no-trailer { color: #e8dede; }
+
+.details-panel {
+  flex: 0 0 300px; background: var(--bg); color: var(--text);
+  border-radius: 10px; padding: 16px; text-shadow: none;
+}
+.details-panel img { width: 100%; border-radius: 8px; display: block; margin-bottom: 14px; }
+.fact { padding: 10px 0; border-top: 1px solid var(--border); font-size: 15px; }
+.fact small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: 11px; margin-bottom: 3px; }
+
+/* ===== Актори ===== */
+.cast-card { flex: 0 0 120px; text-align: center; }
+.cast-card img, .cast-photo {
+  width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
+  background: #eadfcf; display: block; margin: 0 auto 10px;
+}
+.cast-photo { display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.cast-card strong { display: block; font-size: 14px; }
+.cast-card span { font-size: 12px; color: var(--muted); }
+
+/* ===== Відгуки ===== */
+.reviews-note { color: var(--muted); font-size: 13px; margin: -6px 0 16px; }
+.reviews { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.review { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.review-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.avatar {
+  width: 40px; height: 40px; border-radius: 50%; font-weight: 700; color: #fff;
+  background: var(--accent); display: flex; align-items: center; justify-content: center;
+}
+.review-rating { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; color: #b8860b; font-size: 13px; }
+.review-text {
+  margin: 0; color: var(--text); line-height: 1.55; font-size: 14px; white-space: pre-line;
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+}
+.review-text.open { display: block; overflow: visible; }
+.link-btn { background: none; border: none; color: var(--accent); cursor: pointer; margin-top: 10px; padding: 0; font-size: 14px; }
+.link-btn:hover { text-decoration: underline; }
+.translate-row { display: flex; align-items: center; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+.translate-row .link-btn { margin-top: 0; }
+.mt-note { color: var(--muted); font-size: 12px; }
+.translate-error { color: #b00020; font-size: 13px; }
+
+/* ===== Вікно трейлера ===== */
+.modal {
+  position: fixed; inset: 0; z-index: 100; background: rgba(0, 0, 0, 0.85);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-box { position: relative; width: min(960px, 100%); aspect-ratio: 16 / 9; }
+.modal-box iframe { width: 100%; height: 100%; border: 0; border-radius: 8px; }
+.modal-close { position: absolute; top: -44px; right: 0; background: none; border: none; color: #fff; cursor: pointer; }
+
+/* ===== Вхід і реєстрація ===== */
+.auth-page { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 30px 16px; }
+.auth-card {
+  width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 16px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 30px;
+}
+.auth-card h2 { margin: 0 0 4px; font-family: Georgia, serif; font-size: 28px; text-align: center; color: var(--accent-dark); }
+.auth-card label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--muted); }
+.auth-card input {
+  padding: 11px 13px; border-radius: 8px; border: 1px solid var(--border);
+  background: #fff; color: var(--text); font-size: 16px;
+}
+.auth-card input:focus { outline: 2px solid var(--accent); }
+.auth-card .btn { justify-content: center; margin-top: 6px; }
+.auth-error {
+  margin: 0; padding: 10px 14px; border-radius: 8px; font-size: 14px;
+  background: #fde8ec; border: 1px solid #e9a6b4; color: #8a1230;
+}
+.auth-switch { margin: 0; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* ===== Списки "Обране" і "Переглянуте" ===== */
+.list-page { min-height: 60vh; padding-top: 30px; }
+.empty-state { text-align: center; padding: 70px 20px; color: var(--muted); }
+.empty-state h2 { font-family: Georgia, serif; color: var(--accent-dark); }
+.empty-state .btn { margin-top: 18px; }
+
+.footer { text-align: center; font-size: 12px; color: var(--muted); margin: 50px 0 0; padding: 20px; border-top: 1px solid var(--border); }
+
+@media (max-width: 900px) {
+  .navbar { padding: 10px 16px; }
+  .logo, .nav-user { display: none; }
+  .nav-link { padding: 8px 10px; font-size: 13px; }
+  .hero-content { padding: 0 20px 70px; }
+  .hero h1 { font-size: 30px; }
+  .dots { left: 20px; }
+  .section { padding: 0 16px; }
+  .details-inner { flex-direction: column; align-items: flex-start; padding: 30px 20px; }
+  .details-panel { flex: none; width: 100%; max-width: 340px; }
+}
